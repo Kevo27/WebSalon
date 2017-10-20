@@ -102,3 +102,4 @@ C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.TraceListener.dll
 C:\work\WebSalon\WebSalon\bin\System.Diagnostics.DiagnosticSource.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.TraceListener.xml
 C:\work\WebSalon\WebSalon\bin\System.Diagnostics.DiagnosticSource.xml
+C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.csprojResolveAssemblyReference.cache
