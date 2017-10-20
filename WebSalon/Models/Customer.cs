@@ -11,7 +11,8 @@ namespace WebSalon.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,18 @@ namespace WebSalon.Models
         }
     
         public int CustomerID { get; set; }
+
+        [Required]
+        [Display(Name = "Vorname")]
         public string FName { get; set; }
+        [Required]
+        [Display(Name = "Nachname")]
         public string LName { get; set; }
+        [Display(Name = "Geburstag")]
         public Nullable<System.DateTime> BirthDay { get; set; }
+        [Display(Name = "WeiblichJN")]
         public Nullable<bool> Female { get; set; }
+        [Display(Name = "Notizen")]
         public string Notes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
