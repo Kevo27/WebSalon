@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebSalon.Models;
+using PagedList;
 
 namespace WebSalon.Controllers
 {
@@ -16,9 +17,69 @@ namespace WebSalon.Controllers
         private SalonEntities db = new SalonEntities();
 
         // GET: Customers
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder,string currentFilter, string searchString, int? page)
         {
-            return View(db.Customers.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            //Filter nachname
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var customers = from c in db.Customers
+                            select c;
+           
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = customers.Where(c => c.LName.Contains(searchString));
+            }
+
+            
+
+            if (ViewBag.NameSortParm == "name_desc")
+            {
+               
+                switch (sortOrder)
+                {
+                    case "Vorname":
+                        customers = customers.OrderBy(s => s.FName);
+                        break;
+                    case "Nachname":
+                        customers = customers.OrderBy(s => s.LName);
+                        break;
+                    default:
+                        customers = customers.OrderBy(s => s.FName);
+                        break;
+                }
+            }
+            else
+            {
+                switch (sortOrder)
+                {
+                    case "Vorname":
+                        customers = customers.OrderByDescending(s => s.FName);
+                        break;
+                    case "Nachname":
+                        customers = customers.OrderByDescending(s => s.LName);
+                        break;
+                    default:
+                        customers = customers.OrderByDescending(s => s.FName);
+                        break;
+                }
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(customers.ToPagedList(pageNumber,pageSize));
         }
 
         // GET: Customers/Details/5
@@ -60,6 +121,30 @@ namespace WebSalon.Controllers
             }
 
             return View(customer);
+        }
+
+        public ActionResult CustomerVisits(List<Customer> customerList = null)
+        {
+            if(customerList == null)
+            {
+                customerList = this.db.Customers.ToList();
+            }
+            else
+            {
+
+            }
+            return View(customerList);
+        }
+
+        public void DetailVisit(int? id)
+        {
+            var customerList = this.db.Customers.ToList();
+
+            if (this.db.Visits.Where(v => v.CustomerID == id).ToList() != null)
+            {
+                customerList.SelectMany(c => c.Visits = this.db.Visits.Where(v => v.CustomerID == id).ToList());
+            }
+            CustomerVisits(customerList);
         }
 
         // GET: Customers/Edit/5

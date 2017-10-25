@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebSalon.Models
 {
@@ -16,6 +17,11 @@ namespace WebSalon.Models
             // Benutzerdefinierte Benutzeransprüche hier hinzufügen
             return userIdentity;
         }
+
+        [StringLength(50)]
+        public string FName { get; set; }
+        [StringLength(50)]
+        public string LName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -64,6 +64,13 @@ namespace WebSalon.Models
 
     public class RegisterViewModel
     {
+        [Display(Name ="Vorname")]
+        public string FName { get; set; }
+        [Display(Name = "Nachname")]
+        public string LName { get; set; }
+
+        public string FullName { get { return this.FName + " " + this.LName; } }
+
         [Required]
         [EmailAddress]
         [Display(Name = "E-Mail")]

@@ -38,5 +38,7 @@ namespace WebSalon.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Visit> Visits { get; set; }
+
+        public virtual List<Visit> CustomerVisits { get; set; }
     }
 }

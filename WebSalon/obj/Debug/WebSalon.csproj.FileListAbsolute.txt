@@ -24,6 +24,7 @@ C:\work\WebSalon\WebSalon\bin\Microsoft.AI.ServerTelemetryChannel.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.AI.Web.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.AI.WindowsServer.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.dll
+C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.TraceListener.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.AspNet.Identity.Core.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -40,6 +41,9 @@ C:\work\WebSalon\WebSalon\bin\Microsoft.Owin.Security.Twitter.dll
 C:\work\WebSalon\WebSalon\bin\Microsoft.Web.Infrastructure.dll
 C:\work\WebSalon\WebSalon\bin\Newtonsoft.Json.dll
 C:\work\WebSalon\WebSalon\bin\Owin.dll
+C:\work\WebSalon\WebSalon\bin\PagedList.dll
+C:\work\WebSalon\WebSalon\bin\PagedList.Mvc.dll
+C:\work\WebSalon\WebSalon\bin\System.Diagnostics.DiagnosticSource.dll
 C:\work\WebSalon\WebSalon\bin\System.Web.Helpers.dll
 C:\work\WebSalon\WebSalon\bin\System.Web.Mvc.dll
 C:\work\WebSalon\WebSalon\bin\System.Web.Optimization.dll
@@ -53,7 +57,11 @@ C:\work\WebSalon\WebSalon\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\work\WebSalon\WebSalon\bin\Microsoft.AI.Web.xml
 C:\work\WebSalon\WebSalon\bin\Microsoft.AI.WindowsServer.xml
 C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.xml
+C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.TraceListener.xml
 C:\work\WebSalon\WebSalon\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\work\WebSalon\WebSalon\bin\PagedList.xml
+C:\work\WebSalon\WebSalon\bin\PagedList.Mvc.xml
+C:\work\WebSalon\WebSalon\bin\System.Diagnostics.DiagnosticSource.xml
 C:\work\WebSalon\WebSalon\bin\System.Web.Helpers.xml
 C:\work\WebSalon\WebSalon\bin\System.Web.Mvc.xml
 C:\work\WebSalon\WebSalon\bin\System.Web.Optimization.xml
@@ -96,10 +104,8 @@ C:\work\WebSalon\WebSalon\bin\de\Microsoft.Owin.Security.Facebook.resources.dll
 C:\work\WebSalon\WebSalon\bin\de\Microsoft.Owin.Security.Google.resources.dll
 C:\work\WebSalon\WebSalon\bin\de\Microsoft.Owin.Security.Twitter.resources.dll
 C:\work\WebSalon\WebSalon\bin\de\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.Migrations.InitialCommit.resources
+C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.csproj.GenerateResource.Cache
 C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.dll
 C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.pdb
-C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.TraceListener.dll
-C:\work\WebSalon\WebSalon\bin\System.Diagnostics.DiagnosticSource.dll
-C:\work\WebSalon\WebSalon\bin\Microsoft.ApplicationInsights.TraceListener.xml
-C:\work\WebSalon\WebSalon\bin\System.Diagnostics.DiagnosticSource.xml
-C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.csprojResolveAssemblyReference.cache
+C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.Migrations.addvornameandnachname.resources
