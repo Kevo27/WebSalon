@@ -47,7 +47,7 @@
                     @Html.DisplayFor(modelItem => item.Notes)
                 </td>
                 <td>
-                    @Html.ActionLink("Details-Visit", "DetailVisit", new { id = item.CustomerID }) 
+                    <input type="button" onclick="DetailVisit(item.CustomerID.ToString())" value="Details" />
                 </td>
             </tr>
 
