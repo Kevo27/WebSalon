@@ -109,4 +109,3 @@ C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.csproj.GenerateResource.Cache
 C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.dll
 C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.pdb
 C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.Migrations.addvornameandnachname.resources
-C:\work\WebSalon\WebSalon\obj\Debug\WebSalon.csprojResolveAssemblyReference.cache
