@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using WebSalon.Models;
 
 namespace WebSalon.Controllers
 {
@@ -26,5 +29,6 @@ namespace WebSalon.Controllers
 
             return View();
         }
+       
     }
 }

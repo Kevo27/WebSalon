@@ -17,69 +17,21 @@ namespace WebSalon.Controllers
         private SalonEntities db = new SalonEntities();
 
         // GET: Customers
-        public ActionResult Index(string sortOrder,string currentFilter, string searchString, int? page)
+        public ActionResult Index(string id = null)
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            List<Customer> newCustomerlist = db.Customers.ToList();
 
-            //Filter nachname
-            if (searchString != null)
+            var model = new CustomerMasterDetailsModel();
+             
+            model.Customers = newCustomerlist;
+
+            if(id != null)
             {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
-
-            ViewBag.CurrentFilter = searchString;
-
-            var customers = from c in db.Customers
-                            select c;
-           
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                customers = customers.Where(c => c.LName.Contains(searchString));
+                model.SelectedCustomer = newCustomerlist.Find(s => s.CustomerID == Convert.ToInt32(id));
+                model.SelectedCustomerID = id;
             }
 
-            
-
-            if (ViewBag.NameSortParm == "name_desc")
-            {
-               
-                switch (sortOrder)
-                {
-                    case "Vorname":
-                        customers = customers.OrderBy(s => s.FName);
-                        break;
-                    case "Nachname":
-                        customers = customers.OrderBy(s => s.LName);
-                        break;
-                    default:
-                        customers = customers.OrderBy(s => s.FName);
-                        break;
-                }
-            }
-            else
-            {
-                switch (sortOrder)
-                {
-                    case "Vorname":
-                        customers = customers.OrderByDescending(s => s.FName);
-                        break;
-                    case "Nachname":
-                        customers = customers.OrderByDescending(s => s.LName);
-                        break;
-                    default:
-                        customers = customers.OrderByDescending(s => s.FName);
-                        break;
-                }
-            }
-
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(customers.ToPagedList(pageNumber,pageSize));
+            return View(model);
         }
 
         // GET: Customers/Details/5
@@ -121,30 +73,6 @@ namespace WebSalon.Controllers
             }
 
             return View(customer);
-        }
-
-        public ActionResult CustomerVisits(List<Customer> customerList = null)
-        {
-            if(customerList == null)
-            {
-                customerList = this.db.Customers.ToList();
-            }
-            else
-            {
-
-            }
-            return View(customerList);
-        }
-
-        public void DetailVisit(int? id)
-        {
-            var customerList = this.db.Customers.ToList();
-
-            if (this.db.Visits.Where(v => v.CustomerID == id).ToList() != null)
-            {
-                customerList.SelectMany(c => c.Visits = this.db.Visits.Where(v => v.CustomerID == id).ToList());
-            }
-            CustomerVisits(customerList);
         }
 
         // GET: Customers/Edit/5
@@ -213,6 +141,18 @@ namespace WebSalon.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult CustomerDetail(string id = null)
+        {
+            List <Customer> newCustomerlist = db.Customers.ToList();
+            Customer customer = newCustomerlist.Find(s => s.CustomerID == Convert.ToInt32(id));
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            return PartialView("_CustomerDetail", customer.Visits.First());
         }
     }
 }

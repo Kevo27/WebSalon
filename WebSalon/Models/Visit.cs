@@ -24,8 +24,10 @@ namespace WebSalon.Models
         public int CustomerID { get; set; }
         public Nullable<System.DateTime> VisitDate { get; set; }
         public Nullable<int> ActDurationMin { get; set; }
-        public string Notes { get; set; }
+        public string ActDurationMinNotes { get; set; }
         public string StylistID { get; set; }
+
+        public string Notes { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

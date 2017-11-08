@@ -1,0 +1,31 @@
+﻿@model WebSalon.Models.Visit
+
+<div>
+    <h2>Visits</h2>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StylistID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActDurationMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+        </tr>       
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.StylistID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.ActDurationMin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem.Notes)
+                </td>        
+            </tr>
+    </table>
+</div>
+

@@ -1,38 +1,32 @@
-﻿@model IEnumerable<WebSalon.Models.Customer>
+﻿@model WebSalon.Models.CustomerMasterDetailsModel
+    
+ 
+<h2>Customers</h2>
+<h2>@ViewBag.Title</h2>
 
-
-    @{
-        ViewBag.Title = "Index";
-    }
-
-    <h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+<section id="CustomerMasterList" class="float-left">
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FName)
+                CustomerID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LName)
+                Vorname
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BirthDay)
+                Nachname
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Female)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notes)
+                Notizen
             </th>
             <th></th>
         </tr>
-
-        @foreach (var item in Model)
+        @foreach (var item in Model.Customers)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FName)
                 </td>
@@ -40,21 +34,36 @@
                     @Html.DisplayFor(modelItem => item.LName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BirthDay)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Female)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Notes)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                    @Html.ActionLink("View Details", "CustomerDetail", new
+               {
+                   id = item.CustomerID
+               }, new { @class = "customer-details" })
                 </td>
             </tr>
         }
-
     </table>
+</section>
+
+<div id="CustomerDetail"></div>
+
+@section scripts{
+    
+    <script>
+        $(function () {
+            $('.customer-details').on('click', function (e) {
+                $.get($(this).prop('href'), function (response) {
+                    $('#CustomerDetail').html(response)
+                });
+
+                e.preventDefault();
+            });
+        });
+    </script>
+    
+    
+    
+    }
     
