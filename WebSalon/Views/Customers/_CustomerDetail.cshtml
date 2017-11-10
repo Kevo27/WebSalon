@@ -1,4 +1,4 @@
-﻿@model WebSalon.Models.Visit
+﻿@model IEnumerable<WebSalon.Models.Visit>
 
 <div>
     <h2>Visits</h2>
@@ -6,7 +6,7 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StylistID)
+               @Html.DisplayNameFor(model => model.StylistID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ActDurationMin)
@@ -14,18 +14,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
             </th>
-        </tr>       
+        </tr>   
+        @foreach (var item in Model) {
             <tr>
                 <td>
-                    @Html.DisplayFor(model => model.StylistID)
+                    @Html.DisplayFor(modelItem => item.StylistID)
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActDurationMin)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => modelItem.ActDurationMin)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => modelItem.Notes)
+                    @Html.DisplayFor(modelItem => item.Notes)
                 </td>        
             </tr>
+        }
     </table>
 </div>
 

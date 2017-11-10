@@ -22,13 +22,15 @@ namespace WebSalon.Controllers
             List<Customer> newCustomerlist = db.Customers.ToList();
 
             var model = new CustomerMasterDetailsModel();
-             
+
             model.Customers = newCustomerlist;
 
             if(id != null)
             {
                 model.SelectedCustomer = newCustomerlist.Find(s => s.CustomerID == Convert.ToInt32(id));
                 model.SelectedCustomerID = id;
+
+                model.Visits = model.SelectedCustomer.Visits.ToList();
             }
 
             return View(model);
@@ -152,7 +154,7 @@ namespace WebSalon.Controllers
                 return HttpNotFound();
             }
 
-            return PartialView("_CustomerDetail", customer.Visits.First());
+            return PartialView("_CustomerDetail", customer.Visits);
         }
     }
 }

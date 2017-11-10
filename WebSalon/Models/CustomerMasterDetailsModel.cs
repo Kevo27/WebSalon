@@ -8,6 +8,8 @@ namespace WebSalon.Models
         public Customer SelectedCustomer { get; set; }
         public string SelectedCustomerID { get; set; }
 
+        public List<Visit> Visits { get; set; }
+
         public List<Customer> Customers { get; set; }
 
     }
